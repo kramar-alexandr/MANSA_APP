@@ -1,0 +1,8 @@
+node_modules/
+build/
+builds/
+tmp/
+etc/db.json
+tmp/
+dist/
+.DS_Store
