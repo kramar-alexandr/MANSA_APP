@@ -11,12 +11,12 @@ module.exports = class AccListWindow extends RegisterListWindow {
   }): void {
     super({
       register: args.register,
-      title: 'План счетов',
+      title: 'Cчета',
       width: 420,
       height: 300
     });
 
-    this.datadef = 'Acc';
-    this.fields = ['acc_number', 'comment'];
+    this.datadef = 'Accounts';
+    this.fields = ['fAccNumber', 'fComment'];
   }
 };
