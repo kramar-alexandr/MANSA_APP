@@ -35,9 +35,12 @@ module.exports = { fields:
         type: 'MATRIX',
         label: 'Math',
         fields: 
-         { id: { type: 'INTEGER', autoIncrement: true, primaryKey: true },
+         { 
+           id: { type: 'INTEGER', autoIncrement: true, primaryKey: true },
            fLangCode: { public: true, type: 'TEXT' },
-           fText: { public: true, type: 'TEXT' } } },
+           fText: { public: true, type: 'TEXT' } 
+         }
+      },
      fPriceVarianceAcc: { public: true, type: 'TEXT' },
      fUsageVarianceAcc: { public: true, type: 'TEXT' },
      fClassType: { public: true, type: 'TEXT' },
