@@ -268,6 +268,205 @@ module.exports = class ItemsDetailWindow extends RegisterDetailWindow {
         value:1
       }),thirdColumn+50,indent+140);
     })();
+    //----------------------------- Structure Tab -------------------------
+    const strTab = new Tab({name:'Структура'});
+    (()=>{
+      let indent = 10;
+      let ls = 20;
+      let firstColumn = 150;
+      let secondColumn = 450;
+      
+      strTab.add(new Input({text:'Структура',field:'fRecepy'}),firstColumn,indent);
+      strTab.add(new Input({text:'Структура в сч/ф',field:'fInvRecepy'}),firstColumn,indent+=ls);
+      strTab.add(new Input({text:'Товар контракта',field:'fContractItem'}),firstColumn,indent+=ls);
+      strTab.add(new Input({text:'Арендное фактур.',field:'fRentalItem'}),firstColumn,indent+=ls);
+      
+      strTab.add(new Input({text:'Гарантия,мес.',field:'fWarrantyLength'}),firstColumn,indent+=ls*2);
+      //strTab.add(new Input({text:'Код сорт.',field:''}),firstColumn,indent+=ls);
+      strTab.add(new Input({text:'Альтернативный код',field:'fAlternativeCode', width:200}),firstColumn,indent+=ls);
+      strTab.add(new Input({text:'Предупреждение',field:'fWarnText1', width:200}),firstColumn,indent+=ls);
+      
+      indent = 10;
+      strTab.add(new Checkbox({
+        text:'Разбивать на компоненты при вводе',
+        field:'fExplodeRec',
+        value:1
+      }),secondColumn+50,indent);
+      strTab.add(new Input({text:'Штрих-код',field:'fBarCode'}),secondColumn,indent+=ls);
+      strTab.add(new Input({text:'Код произв-ля',field:'fEUCodex'}),secondColumn,indent+=ls);
+      strTab.add(new Input({text:'Код EKN',field:'fEKNCode'}),secondColumn,indent+=ls);
+      strTab.add(new Input({text:'Класс прод.услуг',field:'fCPSCode'}),secondColumn,indent+=ls);
+      strTab.add(new Input({text:'Цвет',field:'fColnr'}),secondColumn,indent+=ls);
+    })();
+    //----------------------------- Structure Tab -------------------------
+    const accTab = new Tab({name:'Счета'});
+    (()=>{
+      let indent = 10;
+      let ls = 20;
+      let firstColumn = 150;
+      let secondColumn = 350;
+      let thirdColumn = 560;
+      
+      accTab.add(new Input({text:'Счёт реализации',field:'fSalesAcc'}),firstColumn,indent);
+      accTab.add(new Input({text:'Счёт реализ.EU',field:'fEUSalesAcc'}),firstColumn,indent+=ls);
+      accTab.add(new Input({text:'Счёт реализ.эксп.',field:'fExpSalesAcc'}),firstColumn,indent+=ls);
+      accTab.add(new Input({text:'Серв.фактур.сч/реал.',field:'fSVOInvbleSalesAcc'}),firstColumn,indent+=ls);
+      accTab.add(new Input({text:'Исп.компонент-в',field:'fCompUsage'}),firstColumn,indent+=ls);
+      accTab.add(new Input({text:'Счёт исп-ния мат.проекта',field:'fProjMaterialsUsageAcc'}),firstColumn,indent+=ls);
+      indent = 10;
+      accTab.add(new Input({text:'Внутр.счёт стоим.',field:'fCostAcc'}),secondColumn,indent);
+      accTab.add(new Input({text:'ЕС счёт стоим.',field:'fEUCostAcc'}),secondColumn,indent+=ls);
+      accTab.add(new Input({text:'Счёт затрат,эксп.',field:'fExpCostAcc'}),secondColumn,indent+=ls);
+      accTab.add(new Input({text:'Серв.фактур.сч.затр.',field:'fSVOInvbleCostAcc'}),secondColumn,indent+=ls);
+      accTab.add(new Input({text:'Серв.гар.сч.затр.',field:'fSVOWarrantyCostAcc'}),secondColumn,indent+=ls);
+      accTab.add(new Input({text:'Серв.контр.сч.затр.',field:'fSVOContractCostAcc'}),secondColumn,indent+=ls);
+      accTab.add(new Input({text:'Серв.гудвил.сч.затр.',field:'fSVOGoodwillCostAcc'}),secondColumn,indent+=ls);
+      accTab.add(new Input({text:'Отель-врем.сч.',field:'fHotelWIPAcc'}),secondColumn,indent+=ls);
+      indent = 10;
+      accTab.add(new Input({text:'Код НДС',field:'fVATCode'}),thirdColumn,indent);
+      accTab.add(new Input({text:'ЕС код НДС',field:'fVATCodeEU'}),thirdColumn,indent+=ls);
+      accTab.add(new Input({text:'Код НДС,эксп.',field:'fVATCodeExp'}),thirdColumn,indent+=ls);
+      accTab.add(new Checkbox({
+        text:'Вычислять налоговые сборы',
+        field:'fPerceptions',
+        value:1
+      }),thirdColumn+50,indent+=ls);
+      accTab.add(new Checkbox({
+        text:'Вычислять удерживаемые налоги',
+        field:'fWithholdings',
+        value:1
+      }),thirdColumn+50,indent+=ls);
+    })();
+    //----------------------------- Variant Tab -------------------------
+    const varTab = new Tab({name:'Варианты'});
+    (()=>{
+      let indent = 10;
+      let ls = 20;
+      let firstColumn = 200;
+      
+      varTab.add(new Input({text:'Маска варианта',field:'fVARMask',width:200}),firstColumn,indent);
+      varTab.add(new Input({text:'Порядок в отчете',field:'fVARRepOrder',width:200}),firstColumn,indent+=ls);
+      varTab.add(new Input({text:'Подмножество',field:'fVARSubsets',width:200}),firstColumn,indent+=ls);
+    })();
+    //----------------------------- Text Tab -------------------------
+    const txtTab = new Tab({name:'Текст'});
+    (()=>{
+      txtTab.add(new Matrix(
+        {
+          field: 'fMathMatrix',
+          width: windowWidth-40,
+          height: 120
+        }), 15, 15);
+    })();
+    //----------------------------- Model Cost Tab -------------------------
+    const modTab = new Tab({name:'Модель ст-ти'});
+    (()=>{
+      let indent = 10;
+      let ls = 20;
+      let firstColumn = 150;
+      let secondColumn = 450;
+      
+      
+      modTab.add( new BlockLabel({text:'Первичная модель стоимости'}),firstColumn-120,indent);
+      const prCostRadio1 = new RadioButton({text:'По умолчанию',value:1});
+      const prCostRadio2 = new RadioButton({text:'Стоимость покупки',value:2});
+      const prCostRadio3 = new RadioButton({text:'% от базовой цены',value:3});
+      const prCostRadio4 = new RadioButton({text:'Средневзвешенная',value:4});
+      const prCostRadio5 = new RadioButton({text:'По очереди',value:5});
+      const prCostRadio6 = new RadioButton({text:'Нет',value:6});
+      const primaryCostGroup = new RadioButtonsGroup({
+        buttons:[
+          prCostRadio1,
+          prCostRadio2,
+          prCostRadio3,
+          prCostRadio4,
+          prCostRadio5,
+          prCostRadio6
+        ],
+        field:'fPrimaryCostModel'
+      });
+      modTab.add(prCostRadio1,firstColumn,indent+=ls);
+      modTab.add(prCostRadio2,firstColumn,indent+=ls);
+      modTab.add(prCostRadio3,firstColumn,indent+=ls);
+      modTab.add(prCostRadio4,firstColumn,indent+=ls);
+      modTab.add(prCostRadio5,firstColumn,indent+=ls);
+      modTab.add(prCostRadio6,firstColumn,indent+=ls);
+      this.add(primaryCostGroup);
+      
+      modTab.add( new BlockLabel({text:'Модель стоимости по очереди'}),firstColumn-120,indent+=ls*2);
+      const lnCostRadio1 = new RadioButton({text:'По умолчанию',value:1});
+      const lnCostRadio2 = new RadioButton({text:'FIFO цена',value:2});
+      const lnCostRadio3 = new RadioButton({text:'LIFO цена',value:3});
+      const lnCostGroup = new RadioButtonsGroup({
+        buttons:[
+          lnCostRadio1,
+          lnCostRadio2,
+          lnCostRadio3
+        ],
+        field:'fQueuedCostModel'
+      });
+      modTab.add(lnCostRadio1,firstColumn,indent+=ls);
+      modTab.add(lnCostRadio2,firstColumn,indent+=ls);
+      modTab.add(lnCostRadio3,firstColumn,indent+=ls);
+      this.add(lnCostGroup);
+      
+      indent = 10;
+      modTab.add( new BlockLabel({text:'Стоимость на сер.номер'}),secondColumn-120,indent);
+      const srCostRadio1 = new RadioButton({text:'По умолчанию',value:1});
+      const srCostRadio2 = new RadioButton({text:'Стоимость не на серийн.номер',value:2});
+      const srCostRadio3 = new RadioButton({text:'Стоимость на серийн.номер',value:3});
+      const srCostGroup = new RadioButtonsGroup({
+        buttons:[
+          srCostRadio1,
+          srCostRadio2,
+          srCostRadio3
+        ],
+        field:'fFIFOPerSerialNr'
+      });
+      modTab.add(srCostRadio1,secondColumn,indent+=ls);
+      modTab.add(srCostRadio2,secondColumn,indent+=ls);
+      modTab.add(srCostRadio3,secondColumn,indent+=ls);
+      this.add(srCostGroup);
+      
+      modTab.add( new BlockLabel({text:'Стоимость по складам'}),secondColumn-120,indent+=ls*2);
+      const stCostRadio1 = new RadioButton({text:'По умолчанию',value:1});
+      const stCostRadio2 = new RadioButton({text:'Стоимость по очер.не по складам',value:2});
+      const stCostRadio3 = new RadioButton({text:'Стоимость по очер.по кажд.складу',value:3});
+      const stCostGroup = new RadioButtonsGroup({
+        buttons:[
+          stCostRadio1,
+          stCostRadio2,
+          stCostRadio3
+        ],
+        field:'fFIFOPerLocation'
+      });
+      modTab.add(stCostRadio1,secondColumn,indent+=ls);
+      modTab.add(stCostRadio2,secondColumn,indent+=ls);
+      modTab.add(stCostRadio3,secondColumn,indent+=ls);
+      this.add(stCostGroup);
+      
+      modTab.add( new BlockLabel({text:'Средневзвешенная по складам'}),secondColumn-160,indent+=ls*2);
+      const waCostRadio1 = new RadioButton({text:'По умолчанию',value:1});
+      const waCostRadio2 = new RadioButton({text:'Средневзвеш.не по складам',value:2});
+      const waCostRadio3 = new RadioButton({text:'Средневзвеш.по кажд.складу',value:3});
+      const waCostGroup = new RadioButtonsGroup({
+        buttons:[
+          waCostRadio1,
+          waCostRadio2,
+          waCostRadio3
+        ],
+        field:'fWAPerLocation'
+      });
+      modTab.add(waCostRadio1,secondColumn,indent+=ls);
+      modTab.add(waCostRadio2,secondColumn,indent+=ls);
+      modTab.add(waCostRadio3,secondColumn,indent+=ls);
+      this.add(waCostGroup);
+    })();
+    //----------------------------- Notes Tab ----------------------------
+    const noteTab = new Tab({name:'Записки'});
+    (()=>{
+      noteTab.add(new Input({text:'Записки',field:'fMath2',width:400,height:300}),100,50);
+    })();
     //----------------------------- stack ---------------------------------
     const stack = new Stack({
       width: windowWidth-10,
@@ -276,7 +475,13 @@ module.exports = class ItemsDetailWindow extends RegisterDetailWindow {
         priceTab,
         stockTab,
         manageTab,
-        costTab
+        costTab,
+        strTab,
+        accTab,
+        varTab,
+        txtTab,
+        modTab,
+        noteTab
       ]
     });
     this.add(stack, 5, headerHeight);
