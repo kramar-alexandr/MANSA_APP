@@ -202,6 +202,7 @@ module.exports = class AccDetailWindow extends RegisterDetailWindow {
     const stack = new Stack({
       width: 420,
       height: 360,
+      buttonWidth:100,
       tabs: [
         viewTab,
         textTab

@@ -1,4 +1,4 @@
 module.exports = {
     settings  : [],
-    registers : ['Accounts','ItemGroup','CurncyCode','Items']
+    registers : ['Accounts','ItemGroup','CurncyCode','Items','Test']
 };

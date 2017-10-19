@@ -471,6 +471,7 @@ module.exports = class ItemsDetailWindow extends RegisterDetailWindow {
     const stack = new Stack({
       width: windowWidth-10,
       height: windowHeight - headerHeight - 30,
+      buttonWidth:65,
       tabs: [
         priceTab,
         stockTab,
