@@ -37,6 +37,7 @@ module.exports = class TestDetailWindow extends RegisterDetailWindow {
     this.add(new Input({text: 'Phone',field: 'phone'}), 100, 40);
     
     /*
+    
     const switcher = new Switch({
         label   : 'switch',
         width   : 120,
