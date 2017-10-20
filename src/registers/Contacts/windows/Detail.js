@@ -17,7 +17,7 @@ const BlockLabel = require('erpjs/core/client/components/BlockLabel');
 
 
 const windowWidth = 800;
-const windowHeight = 400;
+const windowHeight = 440;
 const headerHeight = 90;
 
 module.exports = class ContactsDetailWindow extends RegisterDetailWindow {
@@ -177,7 +177,222 @@ module.exports = class ContactsDetailWindow extends RegisterDetailWindow {
       condTab.add(new Checkbox({text:'Не вкл.нал.на окр.среду',field:'fNoRepa',value:1}),col4,ind+=ls);
       condTab.add(new Checkbox({text:'Без регион.сборов',field:'fNoTax2',value:1}),col4,ind+=ls);
     })();
+    //----------------------------- Pricing Tab ---------------------------
+    const prcTab = new Tab({ name : 'Ценообраз.'});
+    (()=>{
+      let ind = 10;
+      let col1 = 150;
+      let col2 = 400;
+      let col3 = 650;
+      let ls = 20;
+      
+      prcTab.add( new Input({text:'Валюта(кл.)',field:'fCurncyCode'}),col1,ind);
+      prcTab.add( new Input({text:'Прейскурант',field:'fPLCode'}),col1,ind+=ls);
+      prcTab.add( new Input({text:'Таблица скидок',field:'fRebCode'}),col1,ind+=ls);
+      prcTab.add( new Input({text:'Продавец',field:'fSalesMan'}),col1,ind+=ls);
+      prcTab.add( new Input({text:'Товары по умолч.',field:'fCompItemCode'}),col1,ind+=ls);
+      ind = 10;
+      prcTab.add( new Input({text:'Валюта(пост.)',field:'fVECurncyCode'}),col2,ind);
+      prcTab.add( new Input({text:'Таблица скидок',field:'fVERebCode'}),col2,ind+=ls*2);
+      prcTab.add( new Input({text:'Группа продаж',field:'fSalesGroup'}),col2,ind+=ls);
+      ind = 10;
+      prcTab.add( new BlockLabel({text:'Цена основана на'}),col3-100,ind);
+      const prcRadio1 = new RadioButton({text:'на дату счет',value:1});
+      const prcRadio2 = new RadioButton({text:'на дату запл.отгрузки',value:2});
+      const prcRadio3 = new RadioButton({text:'на дату отправки',value:3});
+      const prcGroup = new RadioButtonsGroup({
+        buttons:[
+          prcRadio1,
+          prcRadio2,
+          prcRadio3
+        ],
+        field:'fPriceBasedOn'
+      });
+      prcTab.add(prcRadio1,col3,ind+=ls);
+      prcTab.add(prcRadio2,col3,ind+=ls);
+      prcTab.add(prcRadio3,col3,ind+=ls);
+      this.add(prcGroup);
+    })();
+    //------------------------------ Company TAB ----------------------------------
+    const compTab = new Tab({name:'Копмания'});
+    (()=>{
+      let ind = 10;
+      let col1 = 150;
+      let col2 = 400;
+      let col3 = 650;
+      let ls = 20;
+      
+      compTab.add( new Input({text:'Комментарий',field:'fComment',width:600}),col1,ind);
+      compTab.add( new Input({text:'Предупр.(кл.)',field:'fWarnText1',width:600}),col1,ind+=ls);
+      compTab.add( new Input({text:'Предупр.(пост.)',field:'fVEWarnText1',width:600}),col1,ind+=ls);
+      compTab.add( new Input({text:'ИНН',field:'fVATNr',width:120}),col1,ind+=ls);
+      compTab.add( new Input({text:'Дата пров.НДС',field:'fVATNrCheckDate',width:120}),col1,ind+=ls);
+      compTab.add( new Input({text:'Код НДС(кл.)',field:'fVATCode',width:120}),col1,ind+=ls);
+      compTab.add( new Input({text:'Код НДС покупки',field:'fVEVATCode',width:120}),col1,ind+=ls);
+      compTab.add( new Input({text:'Язык',field:'fLangCode',width:120}),col1,ind+=ls);
+      ind-=ls*4;
+      compTab.add( new Input({text:'ОКПО',field:'fRegNr1',width:120}),col2,ind);
+      compTab.add( new Input({text:'Рег.номер',field:'fRegNr2',width:120}),col2,ind+=ls);
+      compTab.add( new Input({text:'ГНР',field:'fRecipientGLN',width:120}),col2,ind+=ls);
+      
+      ind-=ls*2;
+      compTab.add( new BlockLabel({text:'Тип'}),col3-40,ind);
+      const coRadio1 = new RadioButton({text:'Компания',value:1});
+      const coRadio2 = new RadioButton({text:'Персона',value:2});
+      const coGroup = new RadioButtonsGroup({
+        buttons:[
+          coRadio1,
+          coRadio2
+        ],
+        field:'fCustType'
+      });
+      compTab.add(coRadio1,col3,ind+=ls);
+      compTab.add(coRadio2,col3,ind+=ls);
+      this.add(coGroup);
+    })();
+    //------------------------------ Acc TAB ----------------------------------
+    const accTab = new Tab({name:'Счета'});
+    (()=>{
+      let ind = 10;
+      let col1 = 200;
+      let col2 = 500;
+      let ls = 20;
+      
+      accTab.add( new Input({text:'Счёт кредиторов',field:'fAccAP',width:120}),col1,ind);
+      accTab.add( new Input({text:'Контрольный счёт',field:'fAccCost',width:120}),col1,ind+=ls);
+      accTab.add( new Input({text:'Счёт аванса',field:'fOnAccAccAP',width:120}),col1,ind+=ls);
+      accTab.add( new Input({text:'Объекты(кл.)',field:'fObjects',width:120}),col1,ind+=ls);
+      accTab.add( new Input({text:'Объекты(пост.)',field:'fVEObjects',width:120}),col1,ind+=ls);
+      accTab.add( new Input({text:'Код платежа',field:'fPaymentCode',width:120}),col1,ind+=ls);
+      ind = 10;
+      accTab.add( new Input({text:'IBAN код',field:'fIBANCode',width:200}),col2,ind);
+      accTab.add( new Input({text:'Оператор счёта',field:'fAccOperator',width:200}),col2,ind+=ls);
+      accTab.add( new Input({text:'Р/с',field:'fBankAccount',width:200}),col2,ind+=ls);
+      accTab.add( new Input({text:'Р/с 2',field:'fBank',width:200}),col2,ind+=ls);
+      accTab.add( new Input({text:'Код сортировки',field:'fSortCode',width:200}),col2,ind+=ls);
+      accTab.add( new Input({text:'Способы плат.удерж.',field:'fWithPayMode',width:200}),col2,ind+=ls);
+      
+    })();
+    //------------------------------ Web TAB ----------------------------------
+    const webTab = new Tab({name:'Веб'});
+    (()=>{
+      let ind = 10;
+      let col1 = 200;
+      let col2 = 500;
+      let ls = 20;
+      
+      webTab.add( new Input({text:'Веб-конференция',field:'fWebConf',width:120}),col1,ind);
+      webTab.add( new Input({text:'Первая страница Веб',field:'fWebStartPage',width:120}),col1,ind+=ls);
+      webTab.add( new Input({text:'Код доставки',field:'fFreightCode',width:120}),col1,ind+=ls);
+      ind = 10;
+      webTab.add( new Input({text:'Главная классификац.',field:'fMainDispGroup',width:120}),col2,ind);
+      webTab.add( new Input({text:'Отображать в Веб',field:'fWebDisplays',width:120}),col2,ind+=ls);
+      
+    })();
+    //------------------------------ Web TAB ----------------------------------
+    const commTab = new Tab({name:'Веб'});
+    (()=>{
+      let ind = 10;
+      let col1 = 150;
+      let ls = 20;
+      
+      commTab.add( new Input({text:'Комментарий',field:'fComment0',width:500}),col1,ind);
+      commTab.add( new Input({text:'',field:'fComment1',width:500}),col1,ind+=ls);
+      commTab.add( new Input({text:'',field:'fComment2',width:500}),col1,ind+=ls);
+      commTab.add( new Input({text:'Должность',field:'fTitle',width:500}),col1,ind+=ls);
+      commTab.add( new Input({text:'Служ.обязаность',field:'fJobDesc',width:500}),col1,ind+=ls);
+      commTab.add( new Input({text:'Обращение 1',field:'fSalutation1',width:500}),col1,ind+=ls);
+      commTab.add( new Input({text:'Обращение 2',field:'fSalutation2',width:500}),col1,ind+=ls);
+      commTab.add( new Input({text:'Обращение 3',field:'fSalutation3',width:500}),col1,ind+=ls);
 
+    })();
+    //------------------------------ Guest TAB ----------------------------------
+    const gsTab = new Tab({name:'Гость'});
+    (()=>{
+      let ind = 10;
+      let col1 = 150;
+      let col2 = 400;
+      let col3 = 650;
+      let ls = 20;
+      
+      gsTab.add( new Input({text:'Тип документа',field:'fDocType',width:120}),col1,ind);
+      gsTab.add( new Input({text:'Гражданство',field:'fNationality',width:120}),col1,ind+=ls*2);
+      gsTab.add( new Input({text:'Дата рождения',field:'fBirthDate',width:120}),col1,ind+=ls);
+      gsTab.add( new Input({text:'Место рождения',field:'fBirthPlace',width:120}),col1,ind+=ls);
+      gsTab.add( new Input({text:'Страна рождения',field:'fBirthCountry',width:120}),col1,ind+=ls);
+      gsTab.add( new Input({text:'Профессия',field:'fProfesion',width:120}),col1,ind+=ls);
+      gsTab.add( new Input({text:'Газета',field:'fNewspaper',width:120}),col1,ind+=ls);
+      gsTab.add( new Input({text:'Пароль',field:'fPassphrase',width:120}),col1,ind+=ls);
+      gsTab.add( new Input({text:'Тур оператор',field:'fTourOperator',width:120}),col1,ind+=ls);
+      gsTab.add( new Input({text:'Агент',field:'fAgent',width:120}),col1,ind+=ls);
+      gsTab.add( new Input({text:'Вид оплаты',field:'fDefGuestPayMode',width:120}),col1,ind+=ls);
+      gsTab.add( new Input({text:'Источник заказа',field:'fBookOrigin',width:120}),col1,ind+=ls);
+      gsTab.add( new Input({text:'Отметки о диете',field:'fDietRemarks',width:280}),col1,ind+=ls);
+      gsTab.add( new Input({text:'Отметки о треб.',field:'fRequirementRemarks',width:280}),col1,ind+=ls);
+      
+      ind = 10;
+      gsTab.add( new Input({text:'Номер паспорта',field:'fPassportNr',width:280}),col2,ind);      
+      gsTab.add( new BlockLabel({text:'Пол'}),col2-30,ind+=ls*2);
+      const genRadio1 = new RadioButton({text:'Мужской',value:1});
+      const genRadio2 = new RadioButton({text:'Женский',value:2});
+      const genGroup = new RadioButtonsGroup({
+        buttons:[
+          genRadio1,
+          genRadio2
+        ],
+        field:'fGender'
+      });
+      gsTab.add(genRadio1,col2,ind+=ls);
+      gsTab.add(genRadio2,col2,ind+=ls);
+      this.add(genGroup);
+            
+      gsTab.add( new BlockLabel({text:'Семейное положение'}),col2-70,ind+=ls*2);
+      const merRadio1 = new RadioButton({text:'Не женат',value:1});
+      const merRadio2 = new RadioButton({text:'Замужем',value:2});
+      const merRadio3 = new RadioButton({text:'В разводе',value:3});
+      const merRadio4 = new RadioButton({text:'Вдова/-ец',value:4});
+      const merGroup = new RadioButtonsGroup({
+        buttons:[
+          merRadio1,
+          merRadio2,
+          merRadio3,
+          merRadio4
+        ],
+        field:'fMarStatus'
+      });
+      gsTab.add(merRadio1,col2,ind+=ls);
+      gsTab.add(merRadio2,col2,ind+=ls);
+      gsTab.add(merRadio3,col2,ind+=ls);
+      gsTab.add(merRadio4,col2,ind+=ls);
+      this.add(merGroup);
+      
+      ind-=ls*10;    
+      gsTab.add( new BlockLabel({text:'Возраст'}),col3-30,ind+=ls*2);
+      const ageRadio1 = new RadioButton({text:'Ребенок',value:1});
+      const ageRadio2 = new RadioButton({text:'Взрослый',value:2});
+      const ageRadio3 = new RadioButton({text:'Пенсионер',value:3});
+      const ageGroup = new RadioButtonsGroup({
+        buttons:[
+          ageRadio1,
+          ageRadio2,
+          ageRadio3
+        ],
+        field:'fAgeStatus'
+      });
+      gsTab.add(ageRadio1,col3,ind+=ls);
+      gsTab.add(ageRadio2,col3,ind+=ls);
+      gsTab.add(ageRadio3,col3,ind+=ls);
+      this.add(ageGroup);
+      
+      gsTab.add(new Checkbox({text:'Курит',field:'fSmoking',value:1}),col3,ind+=ls*2);
+      gsTab.add(new Checkbox({text:'В черном списке',field:'fBlacklist',value:1}),col3,ind+=ls);
+      
+    })();
+    //----------------------------- Notes Tab ----------------------------
+    const noteTab = new Tab({name:'Заметки'});
+    (()=>{
+      noteTab.add(new Input({text:'Заметки',field:'fMath2',width:400,height:250}),100,30);
+    })();
     //----------------------------- stack ---------------------------------
     const stack = new Stack({
       width: windowWidth-10,
@@ -187,6 +402,13 @@ module.exports = class ContactsDetailWindow extends RegisterDetailWindow {
         contactTab,
         delTab,
         condTab,
+        prcTab,
+        compTab,
+        accTab,
+        webTab,
+        commTab,
+        gsTab,
+        noteTab
         
       ]
     });
