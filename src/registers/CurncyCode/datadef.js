@@ -30,7 +30,7 @@ module.exports = {
      fXRoundLines: { public: true, type: 'INTEGER' },
      fXRoundVAT: { public: true, type: 'INTEGER' },
      fTaxOfficeCode: { public: true, type: 'TEXT' },
-     fMathMatrix: 
+     CurncyCodeMatrix: 
       { public: true,
         type: 'MATRIX',
         label: 'Math',

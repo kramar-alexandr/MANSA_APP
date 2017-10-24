@@ -8,7 +8,7 @@ module.exports = { fields:
      fRegDate: { public: true, type: 'DATE' },
      fOKMark: { public: true, type: 'INTEGER' },
      fTransDate: { public: true, type: 'DATE' },
-     fMathMatrix: 
+     ReceiptsMatrix: 
       { public: true,
         type: 'MATRIX',
         label: 'Math',

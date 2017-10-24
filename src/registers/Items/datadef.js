@@ -38,7 +38,7 @@ module.exports = { fields:
      fConversion1: { public: true, type: 'FLOAT' },
      fConversion2: { public: true, type: 'FLOAT' },
      fWarrantyLength: { public: true, type: 'FLOAT' },
-     fMathMatrix: 
+     ItemsMatrix: 
       { public: true,
         type: 'MATRIX',
         label: 'Math',

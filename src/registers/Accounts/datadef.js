@@ -22,7 +22,7 @@ module.exports = {
     fTransAutCode: { public: true, type: 'TEXT' },//->AutVc
     fTaxTemplateCode: { public: true, type: 'TEXT'},//->TaxTemplateVc
     fAccClass: { public: true, type: 'TEXT'},//->AccClassVc
-    fLangMatrix: {
+    AccountsMatrix: {
       public: true,
       type: 'MATRIX',
       label: 'Язык',

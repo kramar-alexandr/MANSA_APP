@@ -191,7 +191,7 @@ module.exports = class AccDetailWindow extends RegisterDetailWindow {
     });
     
     const langMatrix = new Matrix({
-      field: 'fLangMatrix',
+      field: 'AccountsMatrix',
       width: 400,
       height: 340
     });

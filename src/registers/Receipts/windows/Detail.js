@@ -52,7 +52,7 @@ module.exports = class ReceiptsDetailWindow extends RegisterDetailWindow {
     this.add(new Checkbox({text:'ОК',field:'fOKFlag',value:1}),col4,ind);
     
     const langMatrix = new Matrix({
-      field: 'fMathMatrix',
+      field: 'ReceiptsMatrix',
       width: windowsWidth-20,
       height: windowsHeight-200
     });

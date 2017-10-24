@@ -30,7 +30,7 @@ module.exports = { fields:
      fWIPAcc: { public: true, type: 'TEXT' },
      fType: { public: true, type: 'INTEGER' },
      fCompUsage: { public: true, type: 'TEXT' },
-     fMathMatrix: 
+     ItemGroupMatrix: 
       { public: true,
         type: 'MATRIX',
         label: 'Math',

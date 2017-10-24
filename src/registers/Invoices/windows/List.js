@@ -17,6 +17,6 @@ module.exports = class InvoicesListWindow extends RegisterListWindow {
     });
 
     this.datadef = 'Invoices';
-    this.fields = ['fSerNr','fOKFlag','fOrderNr','fCustCode','fName','fCurncyCode'];
+    this.fields = ['fSerNr','fOKFlag','fOrderNr','fCustCode','fAddr0','fSum4','fCurncyCode'];
   }
 };

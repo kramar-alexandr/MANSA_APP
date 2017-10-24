@@ -580,7 +580,7 @@ module.exports = class ItemsDetailWindow extends RegisterDetailWindow {
       });
       
       const langMatrix = new Matrix({
-        field: 'fMathMatrix',
+        field: 'ItemGroupMatrix',
         width: windowWidth-20,
         height: stackHeight-20
       });

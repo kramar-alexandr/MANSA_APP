@@ -353,7 +353,7 @@ module.exports = class ItemsDetailWindow extends RegisterDetailWindow {
     (()=>{
       txtTab.add(new Matrix(
         {
-          field: 'fMathMatrix',
+          field: 'ItemsMatrix',
           width: windowWidth-40,
           height: 120
         }), 15, 15);
