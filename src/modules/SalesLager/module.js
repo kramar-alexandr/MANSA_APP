@@ -6,6 +6,7 @@ module.exports = {
       'Items',
       'Contacts',
       'Receipts',
-      'Invoices'
+      'Invoices',
+      'InternalInvoices'
     ]
 };
