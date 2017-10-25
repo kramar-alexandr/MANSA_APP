@@ -5,15 +5,15 @@ const Register = require('erpjs/core/client/Register');
 
 const RegisterListWindow = require('erpjs/core/client/windows/RegisterListWindow');
 
-module.exports = class CitiesListWindow extends RegisterListWindow {
+module.exports = class UnitsListWindow extends RegisterListWindow {
     constructor(args:{register: Register}):void {
         super({
             register : args.register,
-            title    : 'Cities',
-            width    : 420,
-            height   : 300
+            title    : 'Единицы',
+            width    : 300,
+            height   : 100
         });
-        this.datadef = 'Fees';
-        this.fields  = ['Name', 'id'];
+        this.datadef = 'Units';
+        this.fields  = ['fCode','fComment'];
     }
 };

@@ -195,7 +195,6 @@ module.exports = class AccDetailWindow extends RegisterDetailWindow {
       width: 400,
       height: 340
     });
-    console.log(langMatrix);
     
     textTab.add(langMatrix, 5, 13);
     //------------------ stack ---------------------------------
