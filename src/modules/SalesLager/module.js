@@ -12,7 +12,15 @@ module.exports = {
       'InterestCodes',
       'ElectronicInvoicesQueues',
       'Bonuses',
-      'Regions'
+      'Regions',
+      'ExtraTaxCustomerDiscounts',
+      'CrossSalesItems',
+      'StandardProblems',
+      'ElectronicRecordStatuses',
+      'RemainderTexts',
+      'DefaultItems',
+      'AlternativeItems',
+      'PaymentTerms'
     ],
     registers : [
       'Accounts',
