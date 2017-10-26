@@ -3,11 +3,11 @@
 const Register = require('erpjs/core/client/Register');
 const Input = require('erpjs/core/client/components/Input');
 const Matrix = require('erpjs/core/client/components/Matrix');
-const RegisterDetailWindow = require('erpjs/core/client/windows/SettingDetailWindow');
+const SettingWindow = require('../../../tools/SettingWindow');
 
 const windowWidth = 420;
 const windowHeight = 300;
-module.exports = class InternalInvoicesSerDetailWindow extends RegisterDetailWindow {
+module.exports = class InternalInvoicesSerDetailWindow extends SettingWindow {
     constructor(args:{register: Register, id?:string}) {
         super({
             register : args.register,
@@ -17,8 +17,8 @@ module.exports = class InternalInvoicesSerDetailWindow extends RegisterDetailWin
             width    : windowWidth,
             height   : windowHeight
         });
-
         this.datadef = 'InternalInvoicesSer';
+        this.isSetting = true;
     }
 
     async render() {

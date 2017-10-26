@@ -4,7 +4,7 @@ const Register = require('erpjs/core/client/Register');
 const Input = require('erpjs/core/client/components/Input');
 const Matrix = require('erpjs/core/client/components/Matrix');
 const Checkbox = require('erpjs/core/client/components/Checkbox');
-const RegisterDetailWindow = require('erpjs/core/client/windows/SettingDetailWindow');
+const RegisterDetailWindow = require('erpjs/core/client/windows/RegisterDetailWindow');
 
 const windowWidth = 450;
 const windowHeight = 300;
