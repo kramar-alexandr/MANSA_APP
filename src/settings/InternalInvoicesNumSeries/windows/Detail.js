@@ -17,14 +17,14 @@ module.exports = class InternalInvoicesSerDetailWindow extends SettingWindow {
             width    : windowWidth,
             height   : windowHeight
         });
-        this.datadef = 'InternalInvoicesSer';
+        this.datadef = 'InternalInvoicesNumSeries';
         this.isSetting = true;
     }
 
     async render() {
       
       this.add(new Matrix({
-        field: 'InternalInvoicesSerMatrix',
+        field: 'InternalInvoicesNumSeriesMatrix',
         width: windowWidth-20,
         height: windowHeight-20
       }), 10, 10);

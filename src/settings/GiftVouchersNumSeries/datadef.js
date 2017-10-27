@@ -1,6 +1,6 @@
 module.exports = { fields: 
   { id: { type: 'INTEGER', autoIncrement: true, primaryKey: true },
-    InternalInvoicesSerMatrix: 
+    GiftVouchersNumSeriesMatrix: 
     { public: true,
       type: 'MATRIX',
       label: 'Math',

@@ -1,7 +1,7 @@
 module.exports = {
     settings  : [
       'InterestTerms',
-      'InternalInvoicesSer',
+      'InternalInvoicesNumSeries',
       'Installments',
       'ClassificationTypes',
       'IssuedGiftVouchers',
@@ -20,7 +20,15 @@ module.exports = {
       'RemainderTexts',
       'DefaultItems',
       'AlternativeItems',
-      'PaymentTerms'
+      'PaymentTerms',
+      'GiftVouchersReceivedNumSeries',
+      'GiftVouchersNumSeries',
+      'AgeLimits',
+      'CreditLimit',
+      'VatZoneName',
+      'EnvironmentTax',
+      'InvoiceMailSettings'
+      
     ],
     registers : [
       'Accounts',
