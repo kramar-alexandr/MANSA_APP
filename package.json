@@ -8,11 +8,12 @@
     "client": "erpjs run client",
     "build": "erpjs build",
     "devserver": "erpjs run devserver",
-    "compile": "erpjs compile"
+    "compile": "erpjs compile",
+    "perm":"node ./scripts/permissions.js"
   },
   "dependencies": {
     "electron-debug": "^1.4.0",
-    "erpjs": "git+ssh://git@gitlab.webbylab.com:erpjs/erpjs-2.git#master",
+    "erpjs": "git+ssh://git@gitlab.webbylab.com:erpjs/erpjs-2.git#2.4.0",
     "js-beautify": "1.6.14"
   },
   "author": "",
