@@ -1,0 +1,13 @@
+{
+    "name" : "guest",
+    "comment" : "guest permission",
+    "modules" : {
+        "defaultAccess": ["READ","LIST"],
+        "SalesLager": {
+            "access": ["ALL"]
+        }
+    },
+    "registers" : {
+        "defaultAccess": ["ALL"]
+    }
+}

@@ -1,7 +1,13 @@
 // @flow
-module.exports = (args: {
-  data: Object
-}) => {
-  console.log(`recordCheck - ${(new Date()).getTime()}`);
-  console.log(args.data);
-}
+module.exports = ({ modelsRegistry, data, record }) => {
+  /*
+    console.log('record Check: ');
+    //console.log(`model registry:`);
+    //console.log(modelsRegistry);
+    console.log(`data:`);
+    console.log(data);
+    console.log(`record:`);
+    console.log(record);
+  */
+};
+

@@ -1,5 +1,10 @@
 // @flow
-module.exports = (args: { data: Object }) => {
-  console.log(`recordPostRemove - ${(new Date()).getTime()}`);
-  console.log(args.data);
+module.exports = ({ modelsRegistry, record }) => {
+  /*
+  console.log('record post-remove: ');
+  //console.log(`model registry:`);
+  //console.log(modelsRegistry);
+  console.log(`record:`);
+  console.log(record);
+  */
 }

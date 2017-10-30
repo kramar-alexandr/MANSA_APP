@@ -1,7 +1,10 @@
 // @flow
-module.exports = (args: {
-  data: Object
-}) => {
-  console.log(`recordPostUpdate - ${(new Date()).getTime()}`);
-  console.log(args.data); //undefined here...
+module.exports = ({data,record}) => {
+  console.log('record post-update: ');
+  //console.log(`model registry:`);
+  //console.log(modelsRegistry);
+  console.log(`data:`);
+  console.log(data);
+  console.log(`record:`);
+  console.log(record);
 }
