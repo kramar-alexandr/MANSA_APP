@@ -2,19 +2,18 @@
     "name" : "admin",
     "comment" : "admin permission",
     "modules" : {
-        "defaultAccess": ["ALL"],
+        "defaultAccess": ["READ"],
         "Test":{
-          "access":["ALL"]
+          "access":["NONE"]
         }
     },
     "registers" : {
-        "defaultAccess": ["ALL"],
-        "Items": {
-            "access": ["ALL"],
-            "fields": {
-                "fCode": ["READ","REMOVE","CREATE"],
-                "fUnittext": ["READ","EDIT","CREATE"]
-            }
-        }
+        "defaultAccess": ["LIST"]
+    },
+    "settings":{
+      "defaultAccess":["READ","LIST"],
+      "Units":{
+        "access":["ALL"]
+      }
     }
 }

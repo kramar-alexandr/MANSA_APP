@@ -1,10 +1,5 @@
 // @flow
-module.exports = ({data,record}) => {
+module.exports = (obj) => {
   console.log('record pre-update: ');
-  //console.log(`model registry:`);
-  //console.log(modelsRegistry);
-  console.log(`data:`);
-  console.log(data);
-  console.log(`record:`);
-  console.log(record);
+  console.log(obj);
 }
