@@ -2,13 +2,13 @@
     "name" : "admin",
     "comment" : "admin permission",
     "modules" : {
-        "defaultAccess": ["READ"],
+        "defaultAccess": ["ALL"],
         "Test":{
           "access":["NONE"]
         }
     },
     "registers" : {
-        "defaultAccess": ["LIST"]
+        "defaultAccess": ["ALL"]
     },
     "settings":{
       "defaultAccess":["READ","LIST"],

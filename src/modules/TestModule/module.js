@@ -2,7 +2,7 @@ module.exports = {
     settings  : [
     ],
     registers : [
-      { name:'Test'},
-      { name: 'CurncyCode'}
+      { name:'Tests'},
+      { name: 'CurncyCodes'}
     ]
 };

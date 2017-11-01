@@ -21,7 +21,7 @@ module.exports = class AgeLimitsMatrixDetailWindow extends SettingWindow {
             width    : windowWidth,
             height   : windowHeight
         });
-        this.datadef = 'AgeLimits';
+        this.datadef = 'AgeLimit';
         this.isSetting = true;
     }
 

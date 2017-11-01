@@ -27,7 +27,7 @@ module.exports = class TestDetailWindow extends RegisterDetailWindow {
     this.width = 460;
     this.height = 520;
     this.title = 'Test';
-    this.datadef = 'Test';
+    this.datadef = 'Tests';
     this.resizable = true;
   }
 

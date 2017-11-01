@@ -5,9 +5,9 @@
   "main": "index.js",
   "scripts": {
     "server": "erpjs run server",
+    "devserver": "erpjs run devserver",
     "client": "erpjs run client",
     "build": "erpjs build",
-    "devserver": "erpjs run devserver",
     "compile": "erpjs compile",
     "perm":"node ./scripts/permissions.js"
   },

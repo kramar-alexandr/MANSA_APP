@@ -29,7 +29,7 @@ module.exports = class ItemsDetailWindow extends RegisterDetailWindow {
         this.width   = windowWidth;
         this.height  = windowHeight;
         this.title   = 'Группа товаров';
-        this.datadef = 'ItemGroup';
+        this.datadef = 'ItemGroups';
         this.resizable = true;
     }
 

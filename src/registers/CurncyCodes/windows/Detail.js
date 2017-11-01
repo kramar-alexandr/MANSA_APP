@@ -20,7 +20,7 @@ const windowWidth = 520;
 const windowHeight = 340;
 const headerHeight = 60;
 
-module.exports = class CurncyCodeDetailWindow extends RegisterDetailWindow {
+module.exports = class CurncyCodesDetailWindow extends RegisterDetailWindow {
   constructor(args: {
     register: Register,
     id ? : string
@@ -30,7 +30,7 @@ module.exports = class CurncyCodeDetailWindow extends RegisterDetailWindow {
     this.width = windowWidth;
     this.height = windowHeight;
     this.title = 'Валюта';
-    this.datadef = 'CurncyCode';
+    this.datadef = 'CurncyCodes';
     this.resizable = true;
   }
 

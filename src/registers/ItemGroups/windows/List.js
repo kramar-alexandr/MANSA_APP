@@ -16,7 +16,7 @@ module.exports = class AccListWindow extends RegisterListWindow {
       height: 300
     });
 
-    this.datadef = 'ItemGroup';
+    this.datadef = 'ItemGroups';
     this.fields = ['fCode', 'fComment'];
   }
 };

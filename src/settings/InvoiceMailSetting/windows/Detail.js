@@ -21,7 +21,7 @@ module.exports = class InvoiceMailSettingsDetailWindow extends SettingWindow {
             width    : windowWidth,
             height   : windowHeight
         });
-        this.datadef = 'InvoiceMailSettings';
+        this.datadef = 'InvoiceMailSetting';
         this.isSetting = true;
     }
 

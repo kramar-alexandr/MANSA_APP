@@ -1,7 +1,16 @@
 module.exports = {
-    settings  : [
+    registers  : [
+      //registers:
+      { name:'Accounts'},
+      { name:'ItemGroups'},
+      { name:'Items'},
+      { name:'Contacts'},
+      { name:'Receipts'},
+      { name:'Invoices'},
+      { name:'InternalInvoices'},
+      { name:'CurncyCodes', disabled:'true'},
+      //settings:
       { name: 'InterestTerms'},
-      { name: 'InternalInvoicesNumSeries'},
       { name: 'Installments'},
       { name: 'ClassificationTypes'},
       { name: 'IssuedGiftVouchers'},
@@ -20,23 +29,16 @@ module.exports = {
       { name: 'RemainderTexts'},
       { name: 'DefaultItems'},
       { name: 'AlternativeItems'},
-      { name: 'PaymentTerms'},
+      { name: 'PaymentTerms'}  
+    ],
+    settings : [
       { name: 'GiftVouchersReceivedNumSeries'},
       { name: 'GiftVouchersNumSeries'},
-      { name: 'AgeLimits'},
+      { name: 'AgeLimit'},
       { name: 'CreditLimit'},
       { name: 'VatZoneName'},
       { name: 'EnvironmentTax'},
-      { name: 'InvoiceMailSettings'}
-    ],
-    registers : [
-      { name:'Accounts'},
-      { name:'ItemGroup'},
-      { name:'Items'},
-      { name:'Contacts'},
-      { name:'Receipts'},
-      { name:'Invoices'},
-      { name:'InternalInvoices'},
-      { name:'CurncyCode', disabled:'true'}
+      { name: 'InvoiceMailSetting'},
+      { name: 'InternalInvoicesNumSeries'}
     ]
 };
