@@ -3,6 +3,7 @@ module.exports = {
     ],
     registers : [
       { name:'Tests'},
-      { name: 'CurncyCodes'}
+      { name: 'CurncyCodes'},
+      { name: 'TaxTemplates'}
     ]
 };

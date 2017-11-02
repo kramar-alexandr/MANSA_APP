@@ -27,9 +27,11 @@ module.exports = class AccDetailWindow extends RegisterDetailWindow {
     this.title = 'План счетов';
     this.datadef = 'Accounts';
     this.resizable = true;
+    
   }
 
   async render() {
+    
     const accNumberInput = new Input({
       width: 80,
       text: 'Счет',
