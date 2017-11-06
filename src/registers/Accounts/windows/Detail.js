@@ -14,6 +14,8 @@ const RadioButton = require('erpjs/core/client/components/RadioButton');
 const RadioButtonsGroup = require('erpjs/core/client/components/RadioButtonsGroup');
 const Header = require('erpjs/core/client/components/Header');
 const BlockLabel = require('erpjs/core/client/components/BlockLabel');
+const ConfirmWindow = require('erpjs/core/client/windows/ConfirmWindow.js');
+const ContextWindow = require('../../../tools/ContextWindow');
 
 module.exports = class AccDetailWindow extends RegisterDetailWindow {
   constructor(args: {
@@ -31,21 +33,34 @@ module.exports = class AccDetailWindow extends RegisterDetailWindow {
   }
 
   async render() {
-    
     const accNumberInput = new Input({
       width: 80,
       text: 'Счет',
       field: 'fAccNumber'
     });
-
     const commentInput = new Input({
       width: 100,
       text: 'Наименование',
       field: 'fComment'
     });
+    const contextWindow = new ContextWindow();
+    accNumberInput.on('ctrl+enter', ()=>{
+      contextWindow.init(
+        {
+          datadef:"Accounts",
+          fields:["fAccNumber","fAccType"],
+          output:"fAccNumber"
+        });
+      contextWindow.onSelect = ({id})=>{
+        accNumberInput.setValue(contextWindow.close({id}));
+      }
+      contextWindow.open();
+    });
     
     this.add(accNumberInput, 95, 10);
     this.add(commentInput, 300, 10);
+    
+    
     
     //----------------View tab------------------------------------
     const viewTab = new Tab({
