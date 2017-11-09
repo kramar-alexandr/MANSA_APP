@@ -8,7 +8,11 @@ module.exports = {
       { name:'Receipts'},
       { name:'Invoices'},
       { name:'InternalInvoices'},
-      { name:'CurncyCodes', disabled:'true'},
+      { name:'CurncyCodes'},
+      { name:'Prices'},
+      { name:'Transactions'},
+      { name:'Payments'},
+      
       //settings:
       { name: 'InterestTerms'},
       { name: 'Installments'},

@@ -1,7 +1,5 @@
 // @flow
-
 const Register = require('erpjs/core/client/Register');
-
 const RegisterDetailWindow = require('erpjs/core/client/windows/RegisterDetailWindow');
 const oneColumnedLayout = require('erpjs/core/client/layouts/oneColumnedLayout');
 const Input = require('erpjs/core/client/components/Input');
@@ -16,6 +14,7 @@ const Header = require('erpjs/core/client/components/Header');
 const BlockLabel = require('erpjs/core/client/components/BlockLabel');
 const ConfirmWindow = require('erpjs/core/client/windows/ConfirmWindow.js');
 const ContextWindow = require('../../../tools/ContextWindow');
+const states = require('erpjs/core/client/windows/DetailStates.js');
 
 module.exports = class AccDetailWindow extends RegisterDetailWindow {
   constructor(args: {
@@ -29,6 +28,7 @@ module.exports = class AccDetailWindow extends RegisterDetailWindow {
     this.title = 'План счетов';
     this.datadef = 'Accounts';
     this.resizable = true;
+    this.register = args.register;
     
   }
 
@@ -43,7 +43,7 @@ module.exports = class AccDetailWindow extends RegisterDetailWindow {
       text: 'Наименование',
       field: 'fComment'
     });
-    const contextWindow = new ContextWindow();
+    const contextWindow = new ContextWindow({register:this.register});
     accNumberInput.on('ctrl+enter', ()=>{
       contextWindow.init(
         {
@@ -52,7 +52,10 @@ module.exports = class AccDetailWindow extends RegisterDetailWindow {
           output:"fAccNumber"
         });
       contextWindow.onSelect = ({id})=>{
-        accNumberInput.setValue(contextWindow.close({id}));
+        debugger;
+        accNumberInput.setValue(contextWindow.getOutput({id}));
+        this.onChangeData({});
+        contextWindow.close();
       }
       contextWindow.open();
     });
@@ -70,6 +73,19 @@ module.exports = class AccDetailWindow extends RegisterDetailWindow {
     const autCodeInput = new Input({
       text: 'Автопроводка',
       field: 'fAutCode'
+    });
+    autCodeInput.on('ctrl+enter',()=>{
+      contextWindow.init(
+        {
+          datadef:"Items",
+          fields:["fCode"],
+          output:"fItemType"
+        });
+      contextWindow.onSelect = ({id})=>{
+        accNumberInput.setValue(contextWindow.getOutput({id}));
+        contextWindow.close();
+      }
+      contextWindow.open();
     });
 
     const vatCodeInput = new Input({
