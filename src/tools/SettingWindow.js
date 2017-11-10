@@ -19,11 +19,10 @@ module.exports = class SettingWindow extends DetailWindow {
     constructor(args: {
         register: Register, id?: string, isDublicate ?: boolean, isSetting ?: boolean
     }):void {
-        args.state = 'fuck';
+        args.state = states.new;
         super(args);
         //this.setState(states.new);
         if (args.isSetting) this.isSetting = args.isSetting;
-        console.log(this.getState());
     }
 
     async open(): Promise<any> {

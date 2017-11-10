@@ -12,7 +12,9 @@ module.exports = {
       { name:'Prices'},
       { name:'Transactions'},
       { name:'Payments'},
-      
+      { name:'ExchangeRates'},
+      { name:'PriceLists'},
+      { name:'OpenInvoices'},
       //settings:
       { name: 'InterestTerms'},
       { name: 'Installments'},
@@ -43,6 +45,7 @@ module.exports = {
       { name: 'VatZoneName'},
       { name: 'EnvironmentTax'},
       { name: 'InvoiceMailSetting'},
-      { name: 'InternalInvoicesNumSeries'}
+      { name: 'InternalInvoicesNumSeries'},
+      { name: 'BaseCurrency'}
     ]
 };

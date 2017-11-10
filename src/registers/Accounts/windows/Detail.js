@@ -52,7 +52,6 @@ module.exports = class AccDetailWindow extends RegisterDetailWindow {
           output:"fAccNumber"
         });
       contextWindow.onSelect = ({id})=>{
-        debugger;
         accNumberInput.setValue(contextWindow.getOutput({id}));
         this.onChangeData({});
         contextWindow.close();

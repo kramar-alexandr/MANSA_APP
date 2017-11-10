@@ -19,7 +19,6 @@ module.exports = class UnitsDetailWindow extends RegisterDetailWindow {
         });
         this.datadef = 'Units';
     }
-
     async render() {
       let col1 = 100;
       let ls = 20;
