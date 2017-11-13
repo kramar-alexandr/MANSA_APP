@@ -28,5 +28,6 @@ module.exports = class GiftVouchersNumSeriesDetailWindow extends SettingWindow {
         width: windowWidth-20,
         height: windowHeight-20
       }), 10, 10);
+      
     }
 };

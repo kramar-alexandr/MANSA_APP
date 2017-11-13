@@ -1,0 +1,15 @@
+module.exports = { fields: 
+   { id: { type: 'INTEGER', autoIncrement: true, primaryKey: true },
+     fTransNr: { public: true, type: 'FLOAT' },
+     fIVNr: { public: true, type: 'FLOAT' },
+     fCustDate: { public: true, type: 'DATE' },
+     fTransType: { public: true, type: 'INTEGER' },
+     fTransDate: { public: true, type: 'DATE' },
+     fCustCode: { public: true, type: 'TEXT' },
+     fAccNr: { public: true, type: 'TEXT' },
+     fCheckType: { public: true, type: 'INTEGER' },
+     fChequeNr: { public: true, type: 'FLOAT' },
+     fIntYc: { public: true, type: 'INTEGER' },
+     fTransRow: { public: true, type: 'INTEGER' },
+     fInstNr: { public: true, type: 'INTEGER' } },
+  indexes: { fTransNr193: { fields: [ 'fTransNr' ], indicesType: 'UNIQUE' } } }

@@ -15,6 +15,8 @@ module.exports = {
       { name:'ExchangeRates'},
       { name:'PriceLists'},
       { name:'OpenInvoices'},
+      { name:'OpenPrepayments'},//ARPayVc
+      { name:'ReceiptHistories'},//IPrsVc
       //settings:
       { name: 'InterestTerms'},
       { name: 'Installments'},
@@ -46,6 +48,7 @@ module.exports = {
       { name: 'EnvironmentTax'},
       { name: 'InvoiceMailSetting'},
       { name: 'InternalInvoicesNumSeries'},
-      { name: 'BaseCurrency'}
+      { name: 'BaseCurrency'},
+      { name: 'PaymentMode'}
     ]
 };
