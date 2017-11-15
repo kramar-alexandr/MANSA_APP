@@ -68,7 +68,9 @@ class ContextWindow extends Window {
     async fetch(): Promise<any> {
         let data = [];
         try {
-            data = await api.list(this.datadef, {id:5});
+            data = await api.list(this.datadef, {
+              id:{ $gt:1 }
+            });
         } catch (err) {
             alert(err);
         } finally {
